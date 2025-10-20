@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->foreignId('brand_id')->constrained('product_brands')->onDelete('cascade');
-            $table->foreignId('category_id')->constrained('product_categories')->onDelete('cascade');
+            $table->foreignId('brand_id');
+            $table->foreignId('category_id');
             $table->string('name');
             $table->text('description')->nullable($value = true);
             $table->string('image')->nullable($value = true);
             $table->string('pdf_path')->nullable($value = true);
-            $table->foreignId('last_updated_by')->nullable()->constrained('users')->onDelete('set null');
+            $table->foreignId('last_updated_by')->nullable();
             $table->timestamps();
         });
     }

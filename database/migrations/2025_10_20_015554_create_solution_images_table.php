@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('solution_images', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->foreignId('solution_id')->constrained('solutions')->onDelete('cascade');
+            $table->foreignId('solution_id');
             $table->string('image_path');
             $table->integer('upload_order')->nullable($value = true);
             $table->timestamps();

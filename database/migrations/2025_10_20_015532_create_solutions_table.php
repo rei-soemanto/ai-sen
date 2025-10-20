@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id()->autoIncrement();
             $table->string('name');
             $table->text('description')->nullable($value = true);
-            $table->foreignId('last_updated_by')->nullable()->constrained('users')->onDelete('set null');
+            $table->foreignId('last_updated_by')->nullable();
             $table->timestamps();
         });
     }
