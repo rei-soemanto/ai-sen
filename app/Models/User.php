@@ -63,4 +63,19 @@ class User extends Authenticatable
             'solution_id'
         );
     }
+
+    public function contacts(): HasMany
+    {
+        return $this->hasMany(Contact::class, 'user_id');
+    }
+
+    public function assigned_contacts(): HasMany
+    {
+        return $this->hasMany(Contact::class, 'admin_id');
+    }
+
+    public function contact_messages(): HasMany
+    {
+        return $this->hasMany(ChatMessage::class, 'user_id');
+    }
 }
