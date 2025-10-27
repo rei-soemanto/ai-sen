@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('contactss', function (Blueprint $table) {
+        Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users');
-            $table->foreignId('admin_id')->nullable()->constrained('users')->onDelete('set null');
+            $table->foreignId('user_id');
+            $table->foreignId('admin_id')->nullable()->onDelete('set null');
             $table->string('subject')->nullable();
             $table->string('status')->default('open');
             $table->timestamps();
